@@ -12,10 +12,10 @@ jobs:
     
     steps:
       name: Checkout projeto
-      users: actions/checkout@v2
+      uses: actions/checkout@v2
 
       name: Setup node
-      users: actions/setup-node@v2.2.0
+      uses: actions/setup-node@v2.2.0
       with: 
         node-version: ${{matrix.node-version}}
 
