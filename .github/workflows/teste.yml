@@ -2,25 +2,25 @@ name: Deploy
 
 on:
   push:
-      branches: [master]
+    branches: [master]
   pull_request:
-      branches: [master]
+    branches: [master]
 
 jobs:
-    unity-tests:
-      runs-on: ubuntu-latest
+  unity-tests:
+    runs-on: ubuntu-latest
     
     steps:
-        name: Checkout projeto
-        uses: actions/checkout@v2
+      -name: Checkout projeto
+      uses: actions/checkout@v2
 
-        name: Setup node
-        uses: actions/setup-node@v2.2.0
-        with: 
-          node-version: ${{matrix.node-version}}
+      -name: Setup node
+      uses: actions/setup-node@v2.2.0
+      with: 
+        node-version: ${{matrix.node-version}}
 
-        name: Instal dependencies
-        run: npm install
+      -name: Instal dependencies
+      run: npm install
 
-        name: Run Tests
-        run: npm run test
+      -name: Run Tests
+      run: npm run test
